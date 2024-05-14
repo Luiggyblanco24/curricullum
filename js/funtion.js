@@ -51,11 +51,14 @@ function send_info(){
     }
     if(last_name.length==0){
         document.getElementById("last_name").style.background="red";
-       
-    }     
+    }
+    if(contraseña.length==0){
+        document.getElementById("contraseña").style.border="2px solid red";
+    }
     }else{
         document.getElementById("print").innerText = name + " " + last_name;
         document.getElementById("name").style.border="2px solid green";
         document.getElementById("last_name").style.background="green";
+        document.getElementById("contraseña").style.border="2px solid green";
     }
 }
