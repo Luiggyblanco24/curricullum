@@ -122,6 +122,8 @@ function eliminar() {
     array_ejem.pop();
     document.getElementById("valores").value=array_ejem;
 }
+
 function reverse_im() {
-    
+        document.getElementById("text_rever").innerText = array_ejem.reverse();
+        document.getElementById("valores").disabled = false;
 }
