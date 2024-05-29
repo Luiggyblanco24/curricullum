@@ -127,3 +127,34 @@ function reverse_im() {
         document.getElementById("text_rever").innerText = array_ejem.reverse();
         document.getElementById("valores").disabled = false;
 }
+
+function send_name() {
+    let name_one = document.getElementById("name_one").value;
+    let name_two = document.getElementById("name_two").value;
+    let search_var = document.getElementById("search_var").value;
+    let name_com = name_one.toUpperCase()+" "+name_two.toUpperCase();
+    let variable = name_com.charAt(search_var);
+
+    if (name_one== " " || name==" " && !isNaN(name_one) || !isNaN(name_two)) {
+        Swal.fire({
+            title: "el campo no puede estar vacio y no se permiten numeros",
+        })
+    }
+
+    if (search_var<=name_com.length && search_var.length != 0) {
+        document.getElementById("print_name").innerText="la letra correspondiente al # "+search_var+" es "+variable;
+        document.getElementById("print_name2").innerText="el nombre es : "+name_com;
+    }
+    else if(isNaN(search_var)){
+        Swal.fire({
+            icon:"error",
+            title:"no se permiten letras"
+        })
+    }
+    else{
+        Swal.fire({
+            icon: "error",
+            title: "No tiene valor o el valor supera la cantidad de letras del texto"
+        })
+        document.getElementById("print_name").innerText="";
+}}
