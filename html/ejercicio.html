@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejercicio js</title>
+
+    <style>
+        body{
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container{
+            height: 600px;
+            width: 400px;
+            border: 2px solid gray;
+            border-radius: 20px;
+            box-shadow: 0 0 10px gray;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 10px;
+        }
+     
+    </style>
+
+
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <input type="text" id="caja_uno">
+            <input type="text" id="caja_dos"> 
+        </div>
+        <h3>ZONA DE IMPRESION</h3>
+        <div id="print"></div>
+        <div id="cant"></div>
+        <button onclick="enviar()">ENVIAR</button>
+    </div>
+    
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    function enviar() {
+        let caja_uno = document.getElementById("caja_uno").value.trim();
+        let caja_dos = document.getElementById("caja_dos").value.trim();
+        let concat = caja_uno + caja_dos;
+        let cadena = "";
+
+        for (let i = 1; i < 20; i++) {
+            cadena += concat.length + " x "+i+ " = " + (concat.length*i) + "\n";
+        }
+        document.getElementById("print").innerText = caja_uno.toUpperCase() + " "+ caja_dos.toUpperCase();
+        document.getElementById("cant").innerText = cadena;
+    }
+</script>
+
+
+
+
+</body>
+</html>
