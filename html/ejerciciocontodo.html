@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container{
+            
+            border: 2px solid gray;
+            border-radius: 20px;
+            box-shadow: 0 0 10px gray;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .form {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            width: 100%;
+            justify-content: space-around;
+            text-align: center;
+        }
+      
+
+    </style>
+</head>
+<body >
+    <div class="container">
+        <input type="text" placeholder="escribe un nombre" id="nombre">
+        <input type="text" placeholder="escribe un apellido" id="apellido">
+        <input type="text" placeholder="numero" size="5" id="numero">
+        <input type="text" placeholder="caracter" size="5" id="caracter">
+        <button onclick="envia()">enviar</button>
+        <div class="form">
+            <div id="print"></div>
+            <div id="caracteres"></div>
+            
+        </div>
+        <div id="leer"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        function envia() {
+            let nombre = document.getElementById("nombre").value.trim();
+            let apellido = document.getElementById("apellido").value.trim();
+            let numero = document.getElementById("numero").value.trim();
+            let caracter = document.getElementById("caracter").value.trim();
+            let union = nombre.toUpperCase() +" "+ apellido.toUpperCase();
+            let letra = nombre.charAt(numero);
+            let caden = nombre + apellido;
+            let multi=0;
+            let letras =" ";
+            let mul = 0;
+            let acum = 0;
+            let cual= "";
+
+            if (nombre == "" || !isNaN(nombre)) {
+            Swal.fire({
+            title: "no se permiten espacios vacios ni numeros"
+                })
+                document.getElementById("nombre").style.border="2px solid red";
+            }
+            else if ( apellido == "" || !isNaN(apellido)){
+                document.getElementById("apellido").style.border="2px solid red";
+                Swal.fire({
+                title: "no se permiten espacios vacios ni numeros"
+                })
+            }
+            else if (numero<=0 || isNaN(numero)){
+                document.getElementById("numero").style.border="2px solid red";
+                Swal.fire({
+                    title:"no se permiten numeros menores a cero y tampoco espacios vacios"
+                })
+            }
+            // else if(caracter == " " || !isNaN(caracter) || caracter.length>1){
+            //     document.getElementById("caracter").style.border="2px solid red";
+            //     Swal.fire({
+            //         title: "solo se puede un caracter, no se permiten numeros ni espacios vacios"
+            //     })
+            // }
+            else{
+                for(let i = 0; i< union.length; i++){
+                    multi += i+ " x " + union.length + " = " + (union.length*(i)) + "\n";
+                    letras += union.charAt(i) + "\n";
+                    // if ((nombre +  apellido[i]) == caracter) {
+                    //     acum++
+                    // }
+                    // else{
+                    //     cual+=nombre+ apellido[i];
+                    // }
+                }
+                for( let i = 0 ; i<= caden.length ;i ++){
+                    if (caden[i] == letra) {
+                        acum++
+                    }
+                    else{
+                        cual+=caden[i];
+                    }
+                }
+                mul = numero + "x" + union.length + "=" + (union.length*numero);
+
+                document.getElementById("nombre").style.border="2px solid green";
+                document.getElementById("apellido").style.border="2px solid green";
+                document.getElementById("numero").style.border="2px solid green";
+                document.getElementById("print").innerText= union + "\n"+ "la letra que esta en la posicios " + numero + " es " + letra;
+                document.getElementById("caracteres").innerText= "la cantidad de veces que se repite el carecter " +letra+ " es " + acum + "\n" + " sin esa letra quedarias asi " + cual;
+                //document.getElementById("leer").innerText= mul + "\n"+ "\n" +multi + "\n" + letras ;
+            }
+            
+        }
+    </script>
+</body>
+</html>

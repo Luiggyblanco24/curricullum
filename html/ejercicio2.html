@@ -20,6 +20,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        align-items: center;
         flex-direction: column;
         gap: 10px;
     }
@@ -31,7 +32,7 @@
             <input type="text" id="caja_uno">
             <input type="text" id="caja_dos">
             <input type="text" id="caja_tres">
-            <input type="text" id="caja_cuatro"> 
+            <input type="text" id="caja_cuatro">
         </div>
         <h3>ZONA DE IMPRESION</h3>
         <div id="print"></div>
@@ -45,17 +46,18 @@
         let caja_tres = document.getElementById("caja_tres").value.trim();
         let caja_cuatro = document.getElementById("caja_cuatro").value.trim();
         let concat = caja_uno+caja_dos+caja_tres+caja_cuatro;
-        let caja = "";
-        let letter= "";
+        let acum =0;
+        let caja= "";
 
-        for(i=1 ; i>=concat.length;i++ ){
-            letter = concat.charAt(i);
-            caja += (i+1) + letter + "\n"
+        for(let i=0 ; i<=concat.length;i++ ){
+            acum++
+            caja +=  concat.charAt(i) + "\n"
+            
         }
 
 
         document.getElementById("print").innerText = caja_uno.toUpperCase() + " "+ caja_dos.toUpperCase() + " "+ caja_tres.toUpperCase() + " "+ caja_cuatro.toUpperCase();
-        document.getElementById("cant").innerText = "tiene " + concat.length + " caracter " + caja;
+        document.getElementById("cant").innerText = caja + " letra a letra" + "\n" + acum;
                 
             }
         

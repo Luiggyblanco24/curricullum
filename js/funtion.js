@@ -129,8 +129,8 @@ function reverse_im() {
 }
 
 function send_name() {
-    let name_one = document.getElementById("name_one").value;
-    let name_two = document.getElementById("name_two").value;
+    let name_one = document.getElementById("name_one").value.trim();
+    let name_two = document.getElementById("name_two").value.trim();
     let search_var = document.getElementById("search_var").value;
     let name_com = name_one.toUpperCase()+" "+name_two.toUpperCase();
     let variable = name_com.charAt(search_var);
@@ -144,6 +144,7 @@ function send_name() {
     if (search_var<=name_com.length && search_var.length != 0) {
         document.getElementById("print_name").innerText="la letra correspondiente al # "+search_var+" es "+variable;
         document.getElementById("print_name2").innerText="el nombre es : "+name_com;
+        document.getElementById("search_var").value=" ";
     }
     else if(isNaN(search_var)){
         Swal.fire({

@@ -29,9 +29,9 @@
         let cadena = "";
         cantidad=0;
 
-            for (i=0; i > caja_dos; i++) {
+            for (let i=0; i < caja_dos; i++) {
                 if (caja_uno[i]==caja_dos) {
-                    cantidad ++;       
+                    cantidad ++;
         }
         else{
             cadena+= caja_uno[i];
@@ -39,10 +39,10 @@
     }
         
        // document.getElementById("print").innerText = caja_uno.toUpperCase() + " "+ caja_dos.toUpperCase();
-        document.getElementById("cant").innerText = cantidad;
+        document.getElementById("print").innerText = cantidad;
         document.getElementById("cant").innerText= cadena;
        // document.getElementById("cant").innerText = letra;
-    
+}
 </script>
 </body>
 </html>
