@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+.container {
+    text-align: center;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+input[type="number"] {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100px;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#result {
+    margin-top: 20px;
+    font-size: 18px;
+}
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Secuencia de Números</h1>
+        <input type="number" id="numberInput" placeholder="Ingresa un número" min="0">
+        <button onclick="mostrarSecuencia()">Mostrar Secuencia</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function mostrarSecuencia() {
+    const numberInput = parseInt(document.getElementById('numberInput').value);
+    const resultDiv = document.getElementById('result');
+    let acom = '';
+    let acum = '';
+    let sol = '0, 1';
+    let a = 0, b = 1, temp;
+    for (let i = 2; b <= numberInput; i++) {
+        temp = a;
+        a = b;
+        b = temp + b ;
+        sol += b + ",";
+    }
+
+    for (let i = 0; i < numberInput; i++) {
+        if (sol[i] % 2 === 0) {
+            acom += i + ', ';
+        } else {
+            acum += i + ', ';
+        }
+    }
+
+    resultDiv.innerText = "fibonacci :"+ sol +"\n"+  " numeros pares: " + acom + "\n" + "impares: " + acum;
+}
+</script>
+
+    
+</body>
+</html>
